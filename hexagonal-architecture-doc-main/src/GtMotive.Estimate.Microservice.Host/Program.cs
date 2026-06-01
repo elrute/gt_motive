@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
+using System.Threading.Tasks;
 using Azure.Extensions.AspNetCore.Configuration.Secrets;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
@@ -137,6 +138,11 @@ app.UseSwaggerInApplication(pathBase, builder.Configuration);
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapGet("/", context =>
+{
+    context.Response.Redirect(pathBase.IsDefault ? "/swagger" : $"{pathBase.CurrentWithoutTrailingSlash}/swagger");
+    return Task.CompletedTask;
+});
 app.MapControllers();
 
 await app.RunAsync();

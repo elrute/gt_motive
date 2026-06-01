@@ -36,5 +36,10 @@
         </VisualStudio>
     </ProjectExtensions>
 
+    <Target Name="StartLocalDependencies"
+            BeforeTargets="Build"
+            Condition="'$(BuildingInsideVisualStudio)' == 'true' and '$(Configuration)' == 'Debug'">
+        <Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\..\..\scripts\start-local-deps.ps1&quot;" />
+    </Target>
 
 </Project>
