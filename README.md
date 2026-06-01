@@ -60,7 +60,9 @@ Local URLs:
 - `https://localhost:18969`
 - `http://localhost:18970`
 
-The application root redirects to Swagger, so pressing `F5` opens the API UI.`r`n`r`nWhen running from Visual Studio, `F5` also triggers `hexagonal-architecture-doc-main\\scripts\\start-local-deps.ps1`, which starts MongoDB (via Docker) before launching the host.
+The application root redirects to Swagger, so pressing `F5` opens the API UI.
+
+When running from Visual Studio, `F5` also triggers `hexagonal-architecture-doc-main\\scripts\\start-local-deps.ps1`, which starts MongoDB (via Docker) before launching the host.
 
 ## Local Mongo Configuration
 
