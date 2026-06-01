@@ -1,5 +1,6 @@
 using System;
 using GtMotive.Estimate.Microservice.Domain.Enums;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace GtMotive.Estimate.Microservice.Infrastructure.MongoDb.Documents
@@ -7,6 +8,7 @@ namespace GtMotive.Estimate.Microservice.Infrastructure.MongoDb.Documents
     public class VehicleDocument
     {
         [BsonId]
+        [BsonGuidRepresentation(GuidRepresentation.Standard)]
         public Guid Id { get; set; }
 
         public string Plate { get; set; }
